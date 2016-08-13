@@ -2,30 +2,25 @@
 
 require_once './vendor/autoload.php';
 
-$comic = new \Grawer\ComicsAggregator\Source\Garfield();
-$imageUrl = $comic->getLatestComicImageUrl();
+$comics = array(
+    'Garfield',
+    'Dillbert',
+    'Xkcd',
+);
 
-if (!empty($imageUrl)) {
-    $comicItem = new \Grawer\ComicsAggregator\Entity\ComicItem();
-    $comicItem->title = 'Garfield';
-    $comicItem->url = $imageUrl;
-    $comicItem->description = '';
-    $comicItem->date = new \DateTime();
+foreach ($comics as $comicName) {
+    $className = '\Grawer\ComicsAggregator\Source\\' . $comicName;
+    $comic = new $className();
+    $imageUrl = $comic->getLatestComicImageUrl();
 
-    $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
-    $repository->save($comicItem);
-}
+    if (!empty($imageUrl)) {
+        $comicItem = new \Grawer\ComicsAggregator\Entity\ComicItem();
+        $comicItem->title = $comicName;
+        $comicItem->url = $imageUrl;
+        $comicItem->description = '';
+        $comicItem->date = new \DateTime();
 
-$comic = new \Grawer\ComicsAggregator\Source\Dillbert();
-$imageUrl = $comic->getLatestComicImageUrl();
-
-if (!empty($imageUrl)) {
-    $comicItem = new \Grawer\ComicsAggregator\Entity\ComicItem();
-    $comicItem->title = 'Dillbert';
-    $comicItem->url = $imageUrl;
-    $comicItem->description = '';
-    $comicItem->date = new \DateTime();
-
-    $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
-    $repository->save($comicItem);
+        $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
+        $repository->save($comicItem);
+    }
 }
