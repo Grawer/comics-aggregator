@@ -28,6 +28,11 @@ class ComicItemRepository
         }
     }
 
+    public function getAllItems()
+    {
+        return $this->items;
+    }
+
     public function save(ComicItem $newItem)
     {
         foreach ($this->items as $item) {

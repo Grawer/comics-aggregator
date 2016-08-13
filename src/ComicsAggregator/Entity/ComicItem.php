@@ -16,4 +16,15 @@ class ComicItem
 
         return false;
     }
+
+    public function getFeedXml()
+    {
+        $xml = '<item>';
+        $xml .= '<title>' . $this->title . '</title>';
+        $xml .= '<link>' . $this->url . '</link>';
+        $xml .= '<description>' . $this->description . '</description>';
+        $xml .= '</item>';
+
+        return $xml;
+    }
 }
