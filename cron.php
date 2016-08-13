@@ -10,6 +10,7 @@ if (!empty($imageUrl)) {
     $comicItem->title = 'Garfield';
     $comicItem->url = $imageUrl;
     $comicItem->description = '';
+    $comicItem->date = new \DateTime();
 
     $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
     $repository->save($comicItem);
@@ -23,6 +24,7 @@ if (!empty($imageUrl)) {
     $comicItem->title = 'Dillbert';
     $comicItem->url = $imageUrl;
     $comicItem->description = '';
+    $comicItem->date = new \DateTime();
 
     $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
     $repository->save($comicItem);

@@ -23,6 +23,7 @@ class ComicItemRepository
             $comicItem->title = $item->title;
             $comicItem->url = $item->url;
             $comicItem->description = $item->description;
+            $comicItem->date = new \DateTime($item->date->date);
 
             $this->items[$k] = $comicItem;
         }
