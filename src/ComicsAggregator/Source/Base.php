@@ -6,6 +6,16 @@ abstract class Base
 {
     abstract public function getLatestComicImageUrl();
 
+    public function getTitle()
+    {
+        return '';
+    }
+
+    public function getDescription()
+    {
+        return '';
+    }
+
     protected function checkComicUrlExists($url)
     {
         $curl = curl_init();

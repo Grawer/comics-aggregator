@@ -4,12 +4,15 @@ namespace Grawer\ComicsAggregator\Source;
 
 class Xkcd extends Base
 {
+    protected $homepage;
+
     public function getLatestComicImageUrl()
     {
-        $homepage = file_get_contents('https://xkcd.com/');
+        $this->homepage = file_get_contents('https://xkcd.com/');
+
         preg_match(
             '!\<div id\=\"comic\">.*?.*?\<img src\=\"(.*?)\"!sm',
-            $homepage,
+            $this->homepage,
             $matches
         );
 
@@ -20,5 +23,43 @@ class Xkcd extends Base
         }
 
         return false;
+    }
+
+    public function getTitle()
+    {
+        if (empty($this->homepage)) {
+            $this->getLatestComicImageUrl();
+        }
+
+        preg_match(
+            '!\<div id\=\"ctitle"\>(.*?)\<\/div\>!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+
+        return '';
+    }
+
+    public function getDescription()
+    {
+        if (empty($this->homepage)) {
+            $this->getLatestComicImageUrl();
+        }
+
+        preg_match(
+            '!\<div id\=\"comic\">.*?.*?\<img .*?title\=\"(.*?)\"!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+
+        return '';
     }
 }
