@@ -15,7 +15,8 @@ foreach ($comics as $comicName) {
 
     if (!empty($imageUrl)) {
         $comicItem = new \Grawer\ComicsAggregator\Entity\ComicItem();
-        $comicItem->title = $comicName;
+        $comicItem->title = '';
+        $comicItem->sourceName = $comicName;
         $comicItem->url = $imageUrl;
         $comicItem->description = '';
         $comicItem->date = new \DateTime();

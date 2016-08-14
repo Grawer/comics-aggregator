@@ -18,15 +18,21 @@ class ComicItemRepository
             $this->items = array();
         }
 
+        $comicsContainer = array();
+
         foreach ($this->items as $k => $item) {
             $comicItem = new ComicItem();
+            $comicItem->id = $item->id;
+            $comicItem->sourceName = $item->sourceName;
             $comicItem->title = $item->title;
             $comicItem->url = $item->url;
             $comicItem->description = $item->description;
             $comicItem->date = new \DateTime($item->date->date);
 
-            $this->items[$k] = $comicItem;
+            $comicsContainer[$comicItem->id] = $comicItem;
         }
+
+        $this->items = $comicsContainer;
     }
 
     public function getAllItems()
@@ -34,15 +40,30 @@ class ComicItemRepository
         return $this->items;
     }
 
+    public function getComicById($id)
+    {
+        foreach ($this->items as $item) {
+            if ($item->id == $id) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
     public function save(ComicItem $newItem)
     {
         foreach ($this->items as $item) {
             if ($item->equals($newItem)) {
+                $newItem->id = $item->id;
+
                 return true;
             }
         }
 
-        $this->items[] = $newItem;
+        $newElementId = empty($this->items) ? 1 : max(array_keys($this->items)) + 1;
+        $newItem->id = $newElementId;
+        $this->items[$newItem->id] = $newItem;
 
         file_put_contents(
             self::REPOSITORY_FILE,
