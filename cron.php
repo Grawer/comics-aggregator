@@ -3,8 +3,9 @@
 require_once './vendor/autoload.php';
 
 $comics = array(
-    'Garfield',
     'Dillbert',
+    'Garfield',
+    'Wumo',
     'Xkcd',
 );
 
