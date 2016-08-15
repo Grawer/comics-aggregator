@@ -5,6 +5,7 @@ require_once './vendor/autoload.php';
 $repository = new \Grawer\ComicsAggregator\Entity\ComicItemRepository();
 $items = $repository->getAllItems();
 $items = array_reverse($items);
+$items = array_slice($items, 0, 20);
 
 $config = new \Grawer\ComicsAggregator\Helper\Configuration();
 $baseUrl = $config::get('base_url');
