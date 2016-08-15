@@ -6,6 +6,7 @@ $comics = array(
     'CyanideAndHappiness'   => 'Cyanide & Hapiness',
     'Dillbert'              => 'Dillbert',
     'Garfield'              => 'Garfield',
+    'KryzysWieku'           => 'Kryzys Wieku',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',
