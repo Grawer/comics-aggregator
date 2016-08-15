@@ -3,14 +3,15 @@
 require_once './vendor/autoload.php';
 
 $comics = array(
-    'Dillbert',
-    'Garfield',
-    'Wumo',
-    'Xkcd',
+    'Dillbert'              => 'Dillbert',
+    'Garfield'              => 'Garfield',
+    'Wumo'                  => 'Wulff & Morgenthaler',
+    'Xkcd'                  => 'Xkcd',
+    'CyanideAndHappiness'   => 'Cyanide & Hapiness',
 );
 
-foreach ($comics as $comicName) {
-    $className = '\Grawer\ComicsAggregator\Source\\' . $comicName;
+foreach ($comics as $sourceClass => $comicName) {
+    $className = '\Grawer\ComicsAggregator\Source\\' . $sourceClass;
     $comic = new $className();
     $imageUrl = $comic->getLatestComicImageUrl();
     $title = $comic->getTitle();
