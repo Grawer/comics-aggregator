@@ -3,11 +3,12 @@
 require_once './vendor/autoload.php';
 
 $comics = array(
+    'CyanideAndHappiness'   => 'Cyanide & Hapiness',
     'Dillbert'              => 'Dillbert',
     'Garfield'              => 'Garfield',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
-    'CyanideAndHappiness'   => 'Cyanide & Hapiness',
+    'ZuchRysuje'            => 'Zuch rysuje',
 );
 
 foreach ($comics as $sourceClass => $comicName) {

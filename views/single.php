@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="utf-8"/>
         <title><?php echo $comic->sourceName; ?> - <?php echo $comic->date->format('Y-m-d'); ?></title>
     </head>
     <body>
