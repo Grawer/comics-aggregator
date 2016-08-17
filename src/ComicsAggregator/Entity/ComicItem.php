@@ -27,10 +27,13 @@ class ComicItem
         $config = new Configuration();
         $baseUrl = $config::get('base_url');
 
+        $sourceName = htmlspecialchars($this->sourceName, ENT_XML1, 'UTF-8');
+        $description = htmlspecialchars($this->description, ENT_XML1, 'UTF-8');
+
         $xml = '<item>';
-        $xml .= '<title>' . $this->sourceName . ' - ' . $this->date->format('Y-m-d') . '</title>';
+        $xml .= '<title>' . $sourceName . ' - ' . $this->date->format('Y-m-d') . '</title>';
         $xml .= '<link>' . $baseUrl . 'single.php?id=' . $this->id . '</link>';
-        $xml .= '<description>' . $this->description . '</description>';
+        $xml .= '<description>' . $description . '</description>';
         $xml .= '<pubDate>' . $this->date->format('r') . '</pubDate>';
         $xml .= '<guid>' . $baseUrl . 'single.php?id=' . $this->id . '</guid>';
         $xml .= '</item>';
