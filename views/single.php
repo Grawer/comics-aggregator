@@ -6,7 +6,9 @@
     <body>
         <article>
             <h1><?php echo $comic->sourceName; ?> - <?php echo $comic->date->format('Y-m-d'); ?></h1>
+            <?php if (!empty($comic->title)) { ?>
             <h2><?php echo $comic->title; ?></h2>
+            <?php } ?>
             <img src="<?php echo $comic->url; ?>" alt=""/>
             <p><?php echo $comic->description; ?></p>
         </article>
