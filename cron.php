@@ -3,6 +3,8 @@
 require_once './vendor/autoload.php';
 
 $comics = array(
+    'BoliBlog'              => 'boli blog',
+    'CommitStrip'           => 'Commit Strip',
     'CyanideAndHappiness'   => 'Cyanide & Hapiness',
     'Dillbert'              => 'Dillbert',
     'Garfield'              => 'Garfield',
