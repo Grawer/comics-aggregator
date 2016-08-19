@@ -2,7 +2,7 @@
 
 namespace Grawer\ComicsAggregator\Source;
 
-class Dillbert extends Base
+class Dilbert extends Base
 {
     protected $homepage;
 
