@@ -4,12 +4,15 @@ namespace Grawer\ComicsAggregator\Source;
 
 class Dillbert extends Base
 {
+    protected $homepage;
+
     public function getLatestComicImageUrl()
     {
-        $homepage = file_get_contents('http://dilbert.com/');
+        $this->homepage = file_get_contents('http://dilbert.com/');
+
         preg_match(
             '!\<img class\=\"img-responsive img-comic\".*?src=\"(.*?)"!',
-            $homepage,
+            $this->homepage,
             $matches
         );
 
@@ -20,5 +23,43 @@ class Dillbert extends Base
         }
 
         return false;
+    }
+
+    public function getTitle()
+    {
+        if (empty($this->homepage)) {
+            $this->getLatestComicImageUrl();
+        }
+
+        preg_match(
+            '!<span class="comic-title-name">(.*?)</span>!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+
+        return '';
+    }
+
+    public function getDescription()
+    {
+        if (empty($this->homepage)) {
+            $this->getLatestComicImageUrl();
+        }
+
+        preg_match(
+            '!<div id="js-toggle-transcript.*?<p>(.*?)</p>!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+
+        return '';
     }
 }
