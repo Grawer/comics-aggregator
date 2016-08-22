@@ -9,6 +9,7 @@ $comics = array(
     'Dilbert'               => 'Dilbert',
     'Garfield'              => 'Garfield',
     'KryzysWieku'           => 'Kryzys Wieku',
+    'Mutts'                 => 'Mutts',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',
