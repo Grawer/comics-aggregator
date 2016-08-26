@@ -14,7 +14,9 @@ class ComicItemRepository
                 file_get_contents(self::REPOSITORY_FILE),
                 false
             );
-        } else {
+        }
+
+        if (empty($this->items)) {
             $this->items = array();
         }
 
