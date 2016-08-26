@@ -11,7 +11,7 @@ class ZuchRysuje extends Base
         $this->homepage = file_get_contents('http://zuch.media/category/komiks/');
 
         preg_match(
-            '!<img class="aligncenter.*?src="(.*?)"!sm',
+            '!<div class="entry-content clearfix" itemprop="text">.*?<img class="size-full.*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -51,7 +51,7 @@ class ZuchRysuje extends Base
         }
 
         preg_match(
-            '!<img class="aligncenter.*?>.*?<p>(.*?)</p>!sm',
+            '!<div class="entry-content clearfix" itemprop="text">.*?<img class="size-full.*?>.*?<p.*?>(.*?)</p>!sm',
             $this->homepage,
             $matches
         );
