@@ -8,10 +8,10 @@ class ZuchRysuje extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://zuch.media/category/komiks/');
+        $this->homepage = file_get_contents('http://zuch.media/category/komiks-biurowy/');
 
         preg_match(
-            '!<div class="entry-content clearfix" itemprop="text">.*?<img class="size-full.*?src="(.*?)"!sm',
+            '!<div class="entry-content clearfix" itemprop="text">.*?<img class=".*? ?size-full.*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
