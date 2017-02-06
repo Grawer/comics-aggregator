@@ -19,6 +19,14 @@ class Dilbert extends Base
         if (isset($matches[1])) {
             $url = $matches[1];
 
+            $path = parse_url($url, PHP_URL_PATH);
+            $basename = basename($path);
+            $extension = pathinfo($basename, PATHINFO_EXTENSION);
+
+            if (empty($extension)) {
+                $url .= '.jpg';
+            }
+
             return $url;
         }
 
