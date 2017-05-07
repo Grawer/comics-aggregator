@@ -11,7 +11,20 @@ class ZuchRysuje extends Base
         $this->homepage = file_get_contents('http://zuch.media/category/komiks-biurowy/');
 
         preg_match(
-            '!<div class="entry-content clearfix" itemprop="text">.*?<img class=".*? ?size-full.*?src="(.*?)"!sm',
+            '!<h4 class="entry-title" itemprop="headline">.*?<a href="(.*?)".*?</h4>!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (!isset($matches[1])) {
+            return false;
+        }
+
+        $url = $matches[1];
+        $this->homepage = file_get_contents($url);
+
+        preg_match(
+            '!<img class="aligncenter size-full wp-image-.*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -51,7 +64,7 @@ class ZuchRysuje extends Base
         }
 
         preg_match(
-            '!<div class="entry-content clearfix" itemprop="text">.*?<img class="size-full.*?>.*?<p.*?>(.*?)</p>!sm',
+            '!<p>.*?<img class="aligncenter size-full wp-image-.*?</p>.*?<p.*?>(.*?)</p>!sm',
             $this->homepage,
             $matches
         );
