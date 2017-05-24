@@ -24,7 +24,7 @@ class ZuchRysuje extends Base
         $this->homepage = file_get_contents($url);
 
         preg_match(
-            '!<img class="aligncenter size-full wp-image-.*?src="(.*?)"!sm',
+            '!class="entry-title" itemprop="headline".*?<img.*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -64,7 +64,7 @@ class ZuchRysuje extends Base
         }
 
         preg_match(
-            '!<p>.*?<img class="aligncenter size-full wp-image-.*?</p>.*?<p.*?>(.*?)</p>!sm',
+            '!class="entry-title" itemprop="headline".*?<img.*?src=".*?".*?<p.*?>(.*?)</p>!sm',
             $this->homepage,
             $matches
         );
