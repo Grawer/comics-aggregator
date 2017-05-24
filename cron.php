@@ -13,6 +13,7 @@ $comics = array(
     'IntrovertDoodles'      => 'Introvert doodles',
     'KryzysWieku'           => 'Kryzys Wieku',
     'Mutts'                 => 'Mutts',
+    'SarahcAndersen'        => 'Sarah Andersen',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',
