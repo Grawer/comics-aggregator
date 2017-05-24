@@ -10,12 +10,13 @@ $comics = array(
     'Deathbulge'            => 'Deathbulge',
     'Dilbert'               => 'Dilbert',
     'Garfield'              => 'Garfield',
+    'IntrovertDoodles'      => 'Introvert doodles',
     'KryzysWieku'           => 'Kryzys Wieku',
     'Mutts'                 => 'Mutts',
-    // 'PhdComics'             => 'PHD Comics',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',
+    // 'PhdComics'             => 'PHD Comics',
 );
 
 foreach ($comics as $sourceClass => $comicName) {
