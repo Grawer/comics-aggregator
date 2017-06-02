@@ -15,6 +15,7 @@ $comics = array(
     'Mutts'                 => 'Mutts',
     'SarahcAndersen'        => 'Sarah Andersen',
     'WheresMyBubble'        => 'Where\'s My Bubble',
+    'WhoSaidICanAdult'      => 'Who Said I Can Adult?',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',

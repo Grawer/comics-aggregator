@@ -72,7 +72,6 @@ class WheresMyBubble extends Base
         return '';
     }
 
-
     public function getDescription()
     {
         if (empty($this->homepage)) {

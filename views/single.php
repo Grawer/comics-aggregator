@@ -9,8 +9,19 @@
             <?php if (!empty($comic->title)) { ?>
             <h2><?php echo $comic->title; ?></h2>
             <?php } ?>
-            <img src="<?php echo $comic->url; ?>" alt=""/>
+
             <?php
+            $images = $comic->url;
+            if (!is_array($images)) {
+                $images = array($images);
+            }
+
+            foreach ($images as $imageUrl) {
+            ?>
+            <img src="<?php echo $imageUrl; ?>" alt=""/>
+            <?php
+            }
+
                 if (!empty($comic->description)) {
             ?>
             <p>
