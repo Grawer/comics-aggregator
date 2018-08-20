@@ -18,12 +18,8 @@ class SarahcAndersen extends Base
             return false;
         }
 
-        if (isset($matches[1])) {
-            $url = $matches[1];
+        $url = $matches[1];
 
-            return $url;
-        }
-
-        return false;
+        return $url;
     }
 }

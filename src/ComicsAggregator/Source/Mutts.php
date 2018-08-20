@@ -6,20 +6,28 @@ class Mutts extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $homepage = file_get_contents('http://www.mutts.com/');
+        $url = $this->getTodaysComicUrl();
 
-        preg_match(
-            '!<figure><img src="(.*?)"!',
-            $homepage,
-            $matches
-        );
+        $isPresent = $this->checkComicUrlExists($url);
 
-        if (isset($matches[1])) {
-            $url = $matches[1];
-
+        if ($isPresent) {
             return $url;
         }
 
         return false;
+    }
+
+    protected function getTodaysComicUrl()
+    {
+        $url = 'https://mutts.com/wp-content/uploads/'
+            . (new \DateTime())->format('Y')
+            . '/'
+            . (new \DateTime())->format('m')
+            . '/'
+            . (new \DateTime())->format('mdy')
+            . '.gif'
+            ;
+
+        return $url;
     }
 }
