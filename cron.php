@@ -4,7 +4,7 @@ require_once './vendor/autoload.php';
 
 $comics = array(
     'AndrzejRysuje'         => 'Andrzej Rysuje',
-    'BoliBlog'              => 'boli blog',
+    // 'BoliBlog'              => 'boli blog',
     'CommitStrip'           => 'Commit Strip',
     'CyanideAndHappiness'   => 'Cyanide & Hapiness',
     'Deathbulge'            => 'Deathbulge',
@@ -15,9 +15,8 @@ $comics = array(
     'KryzysWieku'           => 'Kryzys Wieku',
     'MonkeyUser'            => 'Monkey User',
     'Mutts'                 => 'Mutts',
-    'SarahcAndersen'        => 'Sarah Andersen',
-    'WheresMyBubble'        => 'Where\'s My Bubble',
-    'WhoSaidICanAdult'      => 'Who Said I Can Adult?',
+    // 'SarahcAndersen'        => 'Sarah Andersen',
+    // 'WheresMyBubble'        => 'Where\'s My Bubble',
     'Wumo'                  => 'Wulff & Morgenthaler',
     'Xkcd'                  => 'Xkcd',
     'ZuchRysuje'            => 'Zuch rysuje',
