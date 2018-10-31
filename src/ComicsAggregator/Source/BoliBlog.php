@@ -8,10 +8,10 @@ class BoliBlog extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://boli.blog.pl/');
+        $this->homepage = file_get_contents('http://boli-blog.pl/');
 
         preg_match(
-            '!<div class="postContent">.*?<img .*?src="(.*?)"!sm',
+            '!<div class="entry-content">.*?<img .*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -32,7 +32,7 @@ class BoliBlog extends Base
         }
 
         preg_match(
-            '!<div class="postHeader">.*?<h2.*?<a.*?>(.*?)</a>!sm',
+            '!<h1 class="entry-title"><a.*?>(.*?)</a></h1>!sm',
             $this->homepage,
             $matches
         );
