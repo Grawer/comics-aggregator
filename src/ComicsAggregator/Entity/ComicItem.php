@@ -22,6 +22,11 @@ class ComicItem
         return false;
     }
 
+    public function getPocketTitle()
+    {
+        return $this->sourceName . ' - ' . $this->date->format('Y-m-d');   
+    }
+
     public function getFeedXml()
     {
         $config = new Configuration();

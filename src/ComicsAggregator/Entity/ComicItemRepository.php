@@ -59,7 +59,7 @@ class ComicItemRepository
             if ($item->equals($newItem)) {
                 $newItem->id = $item->id;
 
-                return true;
+                return false;
             }
         }
 
@@ -72,6 +72,6 @@ class ComicItemRepository
             json_encode($this->items)
         );
 
-        return true;
+        return $newItem;
     }
 }
