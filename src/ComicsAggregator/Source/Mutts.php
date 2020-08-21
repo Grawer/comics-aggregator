@@ -6,28 +6,20 @@ class Mutts extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $url = $this->getTodaysComicUrl();
+        $this->homepage = file_get_contents('https://mutts.com/');
 
-        $isPresent = $this->checkComicUrlExists($url);
+        preg_match(
+            '!<div class="daily-strip-wrapper"><a href="https://mutts.com/product/strip-082120/"><img src="(.*?)".*?/>!sm',
+            $this->homepage,
+            $matches
+        );
 
-        if ($isPresent) {
+        if (isset($matches[1])) {
+            $url = $matches[1];
+
             return $url;
         }
 
         return false;
-    }
-
-    protected function getTodaysComicUrl()
-    {
-        $url = 'https://mutts.com/wp-content/uploads/'
-            . (new \DateTime())->format('Y')
-            . '/'
-            . (new \DateTime())->format('m')
-            . '/'
-            . (new \DateTime())->format('mdy')
-            . '.gif'
-            ;
-
-        return $url;
     }
 }
