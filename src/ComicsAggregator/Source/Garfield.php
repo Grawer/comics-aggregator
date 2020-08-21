@@ -9,8 +9,22 @@ class Garfield extends Base
         $url = $this->getTodaysComicUrl();
         $isPresent = $this->checkComicUrlExists($url);
 
-        if ($isPresent) {
-            return $url;
+        if (!$isPresent) {
+            return false;
+        }
+
+        $this->homepage = file_get_contents($url, false);
+
+        preg_match(
+            '!<meta property="og.image" content="(.*?)".?/>!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            $url = $matches[1];
+
+            return $url . '.gif';
         }
 
         return false;
@@ -18,11 +32,8 @@ class Garfield extends Base
 
     protected function getTodaysComicUrl()
     {
-        $url = 'http://s3.amazonaws.com/static.garfield.com/comics/garfield/'
-            . (new \DateTime())->format('Y')
-            . '/'
-            . (new \DateTime())->format('Y-m-d')
-            . '.gif'
+        $url = 'https://www.gocomics.com/garfield/'
+            . (new \DateTime())->format('Y/m/d')
             ;
 
         return $url;
