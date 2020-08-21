@@ -2,13 +2,13 @@
 
 namespace Grawer\ComicsAggregator\Source;
 
-class ZuchRysuje extends Base
+class ZuchRysujeKomiksRodzinny extends Base
 {
     protected $homepage;
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://zuch.media/category/komiks-biurowy/');
+        $this->homepage = file_get_contents('https://zuch.media/category/komiks-rodzinny/');
 
         preg_match(
             '!<noscript .*?><img src="(.*?)".*?>.*?</noscript>!sm',
