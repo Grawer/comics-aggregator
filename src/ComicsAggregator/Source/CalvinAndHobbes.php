@@ -2,10 +2,10 @@
 
 namespace Grawer\ComicsAggregator\Source;
 
-class Garfield extends GoComics
+class CalvinAndHobbes extends GoComics
 {
     protected function getCommicName()
     {
-        return 'garfield';
+        return 'calvinandhobbes';
     }
 }

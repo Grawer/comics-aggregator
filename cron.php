@@ -33,6 +33,7 @@ function apiCall($method, $payload)
 $comics = array(
     'AndrzejRysuje'         => 'Andrzej Rysuje',
     'BoliBlog'              => 'boli blog',
+    'CalvinAndHobbes'       => 'Calvin and Hobbes',
     'CommitStrip'           => 'Commit Strip',
     'CyanideAndHappiness'   => 'Cyanide & Hapiness',
     'Deathbulge'            => 'Deathbulge',
