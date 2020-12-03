@@ -80,7 +80,7 @@ foreach ($comics as $sourceClass => $comicName) {
         if ($comicItem !== false) {
             $method = 'add';
             $payload = [
-                'url'   => $config::get('base_url') . 'single.php?id=' . $comicItem->id,
+                'url'   => $config::get('base_url') . 'single.php?id=' . $comicItem->id . '&t=' . $comicItem->date->format('U'),
                 // 'url'   => $comicItem->url,
                 // 'title' => $comicItem->getPocketTitle(),
             ];
