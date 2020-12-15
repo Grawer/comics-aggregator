@@ -36,11 +36,9 @@ $comics = array(
     'AuntyAcid'                     => 'Aunty Acid',
     'Bleeker'                       => 'Bleeker',
     'BoliBlog'                      => 'boli blog',
-    'Bottomliners'                  => 'Bottomliners',
     'CalvinAndHobbes'               => 'Calvin and Hobbes',
     'CommitStrip'                   => 'Commit Strip',
     'CyanideAndHappiness'           => 'Cyanide & Hapiness',
-    'Deathbulge'                    => 'Deathbulge',
     'Dilbert'                       => 'Dilbert',
     'Foxtrot'                       => 'Foxtrot',
     'Garfield'                      => 'Garfield',
@@ -55,7 +53,11 @@ $comics = array(
     'Xkcd'                          => 'Xkcd',
     'ZuchRysuje'                    => 'Zuch rysuje',
     'ZuchRysujeKomiksRodzinny'      => 'Zuch rysuje - komiks rodzinny',
+
+    // Off
+    // 'Bottomliners'                  => 'Bottomliners',
     // 'PhdComics'             => 'PHD Comics',
+    // 'Deathbulge'                    => 'Deathbulge',
     // 'WheresMyBubble'        => 'Where\'s My Bubble',
 );
 

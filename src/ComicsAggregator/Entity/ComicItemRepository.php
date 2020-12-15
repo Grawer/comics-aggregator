@@ -67,10 +67,24 @@ class ComicItemRepository
         $newItem->id = $newElementId;
         $this->items[$newItem->id] = $newItem;
 
-        file_put_contents(
-            self::REPOSITORY_FILE,
-            json_encode($this->items)
-        );
+        $oldFilename = self::REPOSITORY_FILE . '.bak';
+        $tempFilename = self::REPOSITORY_FILE . '.tmp';
+
+        if (file_exists($tempFilename)) {
+            unlink($tempFilename);
+        }
+
+        file_put_contents($tempFilename, json_encode($this->items));
+
+        if (file_exists(self::REPOSITORY_FILE)) {
+            rename(self::REPOSITORY_FILE, $oldFilename);
+        }
+
+        rename($tempFilename, self::REPOSITORY_FILE);
+
+        if (file_exists($oldFilename)) {
+            unlink($oldFilename);
+        }
 
         return $newItem;
     }

@@ -9,7 +9,7 @@ class Mutts extends Base
         $this->homepage = file_get_contents('https://mutts.com/');
 
         preg_match(
-            '!<div class="daily-strip-wrapper"><a href="https://mutts.com/product/strip-082120/"><img src="(.*?)".*?/>!sm',
+            '!<div class="daily-strip-wrapper"><a href="https://mutts.com/product/strip-.*?/"><img src="(.*?)".*?/>!sm',
             $this->homepage,
             $matches
         );
