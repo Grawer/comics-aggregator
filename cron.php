@@ -16,6 +16,7 @@ function apiCall($method, $payload)
         CURLOPT_URL             => $url,
         CURLOPT_RETURNTRANSFER  => true,
         CURLOPT_SSL_VERIFYPEER  => false,
+        CURLOPT_SSL_VERIFYHOST  => false,
         CURLOPT_POST            => true,
         CURLOPT_POSTFIELDS      => json_encode($payload),
         CURLOPT_HTTPHEADER      => array('Content-Type: application/json; charset=UTF8',),
