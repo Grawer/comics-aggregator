@@ -9,7 +9,7 @@ class AndrzejRysuje extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://www.andrzejrysuje.pl/wordpress/wp-json/wp/v2/posts?page=1');
+        $this->homepage = file_get_contents('http://www.andrzejrysuje.pl/wordpress/wp-json/wp/v2/posts?page=1', false, stream_context_create($this->options));
         $this->homepage = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $this->homepage);
         $this->json = json_decode($this->homepage, true);
 

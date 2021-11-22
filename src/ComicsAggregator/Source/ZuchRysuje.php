@@ -8,7 +8,7 @@ class ZuchRysuje extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://zuch.media/category/komiks-biurowy/');
+        $this->homepage = file_get_contents('https://zuch.media/category/komiks-biurowy/', false, stream_context_create($this->options));
 
         preg_match(
             '!<noscript .*?><img src="(.*?)".*?>.*?</noscript>!sm',

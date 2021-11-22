@@ -8,7 +8,7 @@ class CommitStrip extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://www.commitstrip.com/en/');
+        $this->homepage = file_get_contents('http://www.commitstrip.com/en/', false, stream_context_create($this->options));
 
         preg_match(
             '!<section>.*?<a href="(.*?)"!sm',
@@ -25,7 +25,7 @@ class CommitStrip extends Base
             return false;
         }
 
-        $this->homepage = file_get_contents($url);
+        $this->homepage = file_get_contents($url, false, stream_context_create($this->options));
 
         preg_match(
             '!<div class="entry-content">.*?<img src="(.*?)"!sm',

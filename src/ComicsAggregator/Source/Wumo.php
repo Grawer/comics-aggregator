@@ -8,7 +8,7 @@ class Wumo extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://wumo.com/wumo');
+        $this->homepage = file_get_contents('http://wumo.com/wumo', false, stream_context_create($this->options));
 
         preg_match(
             '!strip box box-normal.*?<img src="(.*?)"!',

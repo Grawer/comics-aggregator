@@ -6,7 +6,7 @@ class Deathbulge extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $entry = file_get_contents('http://www.deathbulge.com/api/comics');
+        $entry = file_get_contents('http://www.deathbulge.com/api/comics', false, stream_context_create($this->options));
         $this->entry = json_decode($entry, true);
 
         if (isset($this->entry['comic']['comic'])) {

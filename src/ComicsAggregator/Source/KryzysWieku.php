@@ -8,7 +8,7 @@ class KryzysWieku extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://kryzyswieku.blogspot.com/');
+        $this->homepage = file_get_contents('http://kryzyswieku.blogspot.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!<div class=\'post hentry.*?<img .*?src="(.*?)\"!sm',

@@ -6,7 +6,7 @@ class SarahcAndersen extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://sarahcandersen.com/');
+        $this->homepage = file_get_contents('http://sarahcandersen.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!<article.*?<img.*?src="(.*?)"!sm',

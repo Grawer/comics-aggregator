@@ -8,7 +8,7 @@ class Xkcd extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://xkcd.com/');
+        $this->homepage = file_get_contents('https://xkcd.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!\<div id\=\"comic\">.*?.*?\<img src\=\"(.*?)\"!sm',

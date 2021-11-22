@@ -6,7 +6,7 @@ class IntrovertDoodles extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://introvertdoodles.com/');
+        $this->homepage = file_get_contents('http://introvertdoodles.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!<article.*?<img.*?src="(.*?)"!sm',

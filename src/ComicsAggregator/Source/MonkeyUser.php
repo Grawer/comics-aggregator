@@ -6,7 +6,7 @@ class MonkeyUser extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://www.monkeyuser.com/');
+        $this->homepage = file_get_contents('https://www.monkeyuser.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!<meta property="og:image" content="(.*?)"!sm',

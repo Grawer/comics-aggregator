@@ -8,7 +8,7 @@ class BoliBlog extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://boli-blog.pl/');
+        $this->homepage = file_get_contents('http://boli-blog.pl/', false, stream_context_create($this->options));
 
         preg_match(
             '!<div class="entry-content">.*?<img .*?src="(.*?)"!sm',

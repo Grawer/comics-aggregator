@@ -8,18 +8,7 @@ class PhdComics extends Base
 
     public function getLatestComicImageUrl()
     {
-        $opts = array(
-            'http'  =>  array(
-                'method'    =>  'GET',
-                'header'    =>
-                    "Accept-language: en\r\n"
-                    . "User-Agent:\"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0\"\r\n"
-            )
-        );
-
-        $context = stream_context_create($opts);
-
-        $this->homepage = file_get_contents('http://phdcomics.com/comics.php', false, $context);
+        $this->homepage = file_get_contents('http://phdcomics.com/comics.php', false, stream_context_create($this->options));
 
         preg_match(
             '!<meta property="og.image" content="(.*?)"/>!sm',

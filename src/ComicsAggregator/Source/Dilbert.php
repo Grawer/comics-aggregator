@@ -8,7 +8,7 @@ class Dilbert extends Base
 
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('http://dilbert.com/');
+        $this->homepage = file_get_contents('http://dilbert.com/', false, stream_context_create($this->options));
 
         preg_match(
             '!\<img class\=\"img-responsive img-comic\".*?src=\"(.*?)"!',

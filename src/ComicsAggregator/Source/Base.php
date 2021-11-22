@@ -6,6 +6,13 @@ abstract class Base
 {
     abstract public function getLatestComicImageUrl();
 
+    public $options = array(
+        'ssl' => array(
+            'verify_peer'       => false,
+            'verify_peer_name'  => false,
+        ),
+    );
+
     public function getTitle()
     {
         return '';

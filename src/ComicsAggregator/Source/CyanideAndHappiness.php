@@ -6,7 +6,7 @@ class CyanideAndHappiness extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $homepage = file_get_contents('http://explosm.net/comics/latest/');
+        $homepage = file_get_contents('http://explosm.net/comics/latest/', false, stream_context_create($this->options));
 
         preg_match(
             '!\<img id="main-comic" src="(.*?)"!',

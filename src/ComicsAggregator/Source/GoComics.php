@@ -15,7 +15,7 @@ abstract class GoComics extends Base
             return false;
         }
 
-        $this->homepage = file_get_contents($url, false);
+        $this->homepage = file_get_contents($url, false, stream_context_create($this->options));
 
         preg_match(
             '!<meta property="og.image" content="(.*?)".?/>!sm',
