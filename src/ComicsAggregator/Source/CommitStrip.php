@@ -28,7 +28,7 @@ class CommitStrip extends Base
         $this->homepage = file_get_contents($url, false, stream_context_create($this->options));
 
         preg_match(
-            '!<div class="entry-content">.*?<img src="(.*?)"!sm',
+            '!<div class="entry-content">.*?<img .*?src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
