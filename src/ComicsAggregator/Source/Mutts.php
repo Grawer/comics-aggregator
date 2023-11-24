@@ -21,13 +21,13 @@ class Mutts extends Base
         $this->homepage = file_get_contents('https://mutts.com/', false, $context);
 
         preg_match(
-            '!<div class="daily-callout-product-image">.*?<img src="(.*?)".*?/>!sm',
+            '!<div class="the-daily-mutts-section--inner-img-wrapper">.*?<img src="(.*?)".*?/>!sm',
             $this->homepage,
             $matches
         );
 
         if (isset($matches[1])) {
-            $url = $matches[1];
+            $url = 'https://' . $matches[1];
 
             return $url;
         }

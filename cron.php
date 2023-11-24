@@ -40,7 +40,6 @@ $comics = array(
     'CalvinAndHobbes'               => 'Calvin and Hobbes',
     'CommitStrip'                   => 'Commit Strip',
     'CyanideAndHappiness'           => 'Cyanide & Hapiness',
-    'Dilbert'                       => 'Dilbert',
     'Foxtrot'                       => 'Foxtrot',
     'Garfield'                      => 'Garfield',
     'GeekAndPoke'                   => 'Geek & Poke',
@@ -57,8 +56,9 @@ $comics = array(
 
     // Off
     // 'Bottomliners'                  => 'Bottomliners',
-    // 'PhdComics'             => 'PHD Comics',
     // 'Deathbulge'                    => 'Deathbulge',
+    // 'Dilbert'                       => 'Dilbert',
+    // 'PhdComics'             => 'PHD Comics',
     // 'WheresMyBubble'        => 'Where\'s My Bubble',
 );
 

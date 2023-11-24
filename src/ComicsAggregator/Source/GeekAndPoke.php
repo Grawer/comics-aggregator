@@ -21,7 +21,7 @@ class GeekAndPoke extends Base
         $this->homepage = file_get_contents('http://geek-and-poke.com/', false, $context);
 
         preg_match(
-            '!<noscript><img src="(.*?)"!sm',
+            '!<img data-stretch="false" data-src="(.*?)"!sm',
             $this->homepage,
             $matches
         );

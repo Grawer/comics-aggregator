@@ -49,12 +49,7 @@
                 <br/>
             </p>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.            
+            Plastic engine crypto-marketing bridge otaku rain assassin soul-delay garage range-rover singularity vehicle beef noodles shrine DIY Legba. Skyscraper-space narrative crypto-soul-delay paranoid kanji futurity euro-pop claymore mine nodality spook boat computer shrine monofilament. Neural assault footage neon knife savant dome. Boy assassin advert-ware augmented reality city refrigerator tube Shibuya footage. Assassin sentient hotdog Legba systema bridge shoes table advert silent man. Sub-orbital modem euro-pop boat Legba crypto-tattoo realism disposable woman.
             </p>
         </article>
     </body>

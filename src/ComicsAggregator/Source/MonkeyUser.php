@@ -6,10 +6,12 @@ class MonkeyUser extends Base
 {
     public function getLatestComicImageUrl()
     {
-        $this->homepage = file_get_contents('https://www.monkeyuser.com/', false, stream_context_create($this->options));
+        if (empty($this->homepage)) {
+            $this->homepage = file_get_contents('https://www.monkeyuser.com/', false, stream_context_create($this->options));
+        }
 
         preg_match(
-            '!<meta property="og:image" content="(.*?)"!sm',
+            '!<div class="content">.*?<p><img src="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -28,7 +30,24 @@ class MonkeyUser extends Base
         $url = $this->getLatestComicImageUrl();
 
         preg_match(
-            '!<p><img src="' . $url . '" alt="(.*?)"!sm',
+            '!<div class="content">.*?<p><img src="' . $url . '" alt="(.*?)"!sm',
+            $this->homepage,
+            $matches
+        );
+
+        if (isset($matches[1])) {
+            return $matches[1];
+        }
+
+        return '';
+    }
+
+    public function getDescription()
+    {
+        $url = $this->getLatestComicImageUrl();
+
+        preg_match(
+            '!<div class="content">.*?<p><img src="' . $url . '".*? title="(.*?)"!sm',
             $this->homepage,
             $matches
         );
