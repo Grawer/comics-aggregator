@@ -27,7 +27,7 @@ class Mutts extends Base
         );
 
         if (isset($matches[1])) {
-            $url = 'https://' . $matches[1];
+            $url = 'http:' . $matches[1];
 
             return $url;
         }

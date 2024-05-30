@@ -4,6 +4,8 @@ namespace Grawer\ComicsAggregator\Source;
 
 abstract class GoComics extends Base
 {
+    protected $homepage;
+
     abstract protected function getCommicName();
 
     public function getLatestComicImageUrl()

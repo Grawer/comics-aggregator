@@ -1,6 +1,4 @@
 {
-    "base_url" : "http:\/\/...\/comics-aggregator\/",
-    "pocket_base_url": "https://getpocket.com/v3/",
-    "pocket_consumer_key": "",
-    "pocket_access_token": ""
+    "email": "",
+    "email_dsn": "smtp://---email---@gmail.com:---password---@smtp.gmail.com:587"
 }

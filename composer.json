@@ -1,6 +1,7 @@
 {
     "minimum-stability": "dev",
     "require": {
+        "symfony/mailer": "5.4.x-dev"
     },
     "autoload": {
         "psr-4": {

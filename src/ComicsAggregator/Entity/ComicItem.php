@@ -22,9 +22,9 @@ class ComicItem
         return false;
     }
 
-    public function getPocketTitle()
+    public function getFullTitle()
     {
-        return $this->sourceName . ' - ' . $this->date->format('Y-m-d');   
+        return $this->sourceName . ' - ' . $this->date->format('Y-m-d');
     }
 
     public function getFeedXml()
