@@ -23,6 +23,7 @@ $comics = array(
     'Garfield'                      => 'Garfield',
     'JerryKing'                     => 'Jerry King',
     'KryzysWieku'                   => 'Kryzys Wieku',
+    'LooseParts'                    => 'Loose Parts',
     'MonkeyUser'                    => 'Monkey User',
     'Mutts'                         => 'Mutts',
     'PeanutsBegins'                 => 'Peanuts Begins',
