@@ -11,7 +11,7 @@ class MonkeyUser extends Base
         }
 
         preg_match(
-            '!<div class="content">.*?<p><img src="(.*?)"!sm',
+            '!<div class=comic>.*?<p><img src=(.*?) !sm',
             $this->homepage,
             $matches
         );
@@ -30,7 +30,7 @@ class MonkeyUser extends Base
         $url = $this->getLatestComicImageUrl();
 
         preg_match(
-            '!<div class="content">.*?<p><img src="' . $url . '" alt="(.*?)"!sm',
+            '!<div class=comic>.*?<p><img src=' . $url . ' alt="(.*?)"!sm',
             $this->homepage,
             $matches
         );
@@ -47,7 +47,7 @@ class MonkeyUser extends Base
         $url = $this->getLatestComicImageUrl();
 
         preg_match(
-            '!<div class="content">.*?<p><img src="' . $url . '".*? title="(.*?)"!sm',
+            '!<div class=comic>.*?<p><img src=' . $url . '.*? title="(.*?)"!sm',
             $this->homepage,
             $matches
         );
