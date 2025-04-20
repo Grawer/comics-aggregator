@@ -20,7 +20,7 @@ abstract class GoComics extends Base
         $this->homepage = file_get_contents($url, false, stream_context_create($this->options));
 
         preg_match(
-            '!<meta property="og.image" content="(.*?)".?/>!sm',
+            '!imageSrcSet="(.*?)\?optimizer!sm',
             $this->homepage,
             $matches
         );
@@ -28,7 +28,7 @@ abstract class GoComics extends Base
         if (isset($matches[1])) {
             $url = $matches[1];
 
-            return $url . '.gif';
+            return $url;
         }
 
         return false;
@@ -36,11 +36,10 @@ abstract class GoComics extends Base
 
     protected function getTodaysComicUrl()
     {
-        $url = 'https://www.gocomics.com/' . $this->getCommicName() . '/'
-            . (new \DateTime())->format('Y/m/d')
+        $url = 'https://www.gocomics.com/'
+            . $this->getCommicName()
             ;
 
         return $url;
     }
-
 }
