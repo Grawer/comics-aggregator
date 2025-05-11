@@ -20,7 +20,7 @@ abstract class GoComics extends Base
         $this->homepage = file_get_contents($url, false, stream_context_create($this->options));
 
         preg_match(
-            '!imageSrcSet="(.*?)\?optimizer!sm',
+            '/(https:\/\/featureassets\.gocomics\.com\/assets\/[a-z0-9]+)/ms',
             $this->homepage,
             $matches
         );
