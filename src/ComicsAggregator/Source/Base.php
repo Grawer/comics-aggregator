@@ -4,6 +4,8 @@ namespace Grawer\ComicsAggregator\Source;
 
 abstract class Base
 {
+    protected $homepage;
+
     abstract public function getLatestComicImageUrl();
 
     public $options = array(

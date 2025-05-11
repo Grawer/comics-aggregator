@@ -4,11 +4,11 @@ namespace Grawer\ComicsAggregator\Source;
 
 class MonkeyUser extends Base
 {
-    public function getLatestComicImageUrl()
+    private $baseUrl = 'https://www.monkeyuser.com/';
+
+    private function getImageUrlPart()
     {
-        if (empty($this->homepage)) {
-            $this->homepage = file_get_contents('https://www.monkeyuser.com/', false, stream_context_create($this->options));
-        }
+        $this->homepage = file_get_contents($this->baseUrl, false, stream_context_create($this->options));
 
         preg_match(
             '!<div class=comic>.*?<p><img src=(.*?) !sm',
@@ -25,9 +25,14 @@ class MonkeyUser extends Base
         return $url;
     }
 
+    public function getLatestComicImageUrl()
+    {
+        return $this->baseUrl . $this->getImageUrlPart();
+    }
+
     public function getTitle()
     {
-        $url = $this->getLatestComicImageUrl();
+        $url = $this->getImageUrlPart();
 
         preg_match(
             '!<div class=comic>.*?<p><img src=' . $url . ' alt="(.*?)"!sm',
@@ -44,7 +49,7 @@ class MonkeyUser extends Base
 
     public function getDescription()
     {
-        $url = $this->getLatestComicImageUrl();
+        $url = $this->getImageUrlPart();
 
         preg_match(
             '!<div class=comic>.*?<p><img src=' . $url . '.*? title="(.*?)"!sm',
