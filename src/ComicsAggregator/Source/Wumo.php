@@ -17,7 +17,7 @@ class Wumo extends Base
         );
 
         if (isset($matches[1])) {
-            $url = 'http://wumo.com/' . $matches[1];
+            $url = 'http://wumo.com' . $matches[1];
 
             return $url;
         }
