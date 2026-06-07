@@ -17,18 +17,21 @@ abstract class GoComics extends Base
             return false;
         }
 
-        $this->options = array_merge(
-            array(
-                'http'  =>  array(
-                    'method'    =>  'GET',
-                    'header'    =>
-                        "User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36\r\n"
-                )
-            ),
-            $this->options
+        $curl = curl_init();
+
+        $options = array(
+            CURLOPT_URL             => $url,
+            CURLOPT_RETURNTRANSFER  => true,
+            CURLOPT_SSL_VERIFYPEER  => false,
+            CURLOPT_HTTPHEADER      => [
+                "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+                "Accept-Language: pl-PL,pl;q=0.9,en-GB;q=0.8,en;q=0.7,pl-SP;q=0.6,en-US;q=0.5",
+            ]
         );
-        $context = stream_context_create($this->options);
-        $this->homepage = file_get_contents($url, false, $context);
+
+        curl_setopt_array($curl, $options);
+        $this->homepage = curl_exec($curl);
+        curl_close($curl);
 
         preg_match(
             '/(https:\/\/featureassets\.gocomics\.com\/assets\/[a-z0-9]+)/ms',
